@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrfToken }}">
+
     <title>Streamza</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="js/index.js"></script>
@@ -48,10 +50,10 @@
     <main class="w-full h-screen flex flex-col items-center justify-center">
         <section id="login" class="border border-slate-300 shadow-lg p-12 rounded-lg flex flex-col gap-6 items-center">
             <h1 class="font-extrabold text-2xl">Connexion</h1>
-            <input placeholder="phone" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96"
-                type="number">
-            <input placeholder="password" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96"
-                type="password">
+            <input name="login_phone" placeholder="phone"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="number">
+            <input name="login_password" placeholder="password"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="password">
             <button id="link-logup"
                 class="text-right text-gray-600 w-full pb-4 hover:underline hover:text-slate-800">Créer un
                 compte</button>
@@ -61,22 +63,25 @@
 
         <section id="logup" class="border border-slate-300 p-12 rounded-lg hidden flex-col gap-6 items-center">
             <h1 class="font-extrabold text-2xl">Inscription</h1>
-            <input placeholder="names" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="text">
-            <input placeholder="phone" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96"
-                type="number">
-            <input placeholder="email" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96"
-                type="email">
-            <input class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-full" type="date">
-            <input placeholder="password" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96"
-                type="password">
-            <input placeholder="password" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96"
-                type="password">
+            <input name="logup_name" placeholder="Full Name"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="text">
+            <input name="logup_phone" placeholder="Phone Number"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="number">
+            <input name="logup_email" placeholder="Email"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="email">
+            <input name="dateBirth" class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="date">
+            <input name="logup_password" id="pwd1" placeholder="Password"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="password">
+            <input id="pwd2" placeholder="Confirm Password"
+                class="outline outline-1 outline-gray-200 rounded-lg px-4 py-2 w-96" type="password">
             <button id="link-login"
                 class="text-right text-gray-600 w-full pb-4 hover:underline hover:text-slate-800">J'ai déjà un
                 compte</button>
-            <button class="border w-full py-2 rounded-3xl bg-slate-500 hover:bg-slate-600 font-bold text-white">Créer un
+            <button id="btn-logup"
+                class="border w-full py-2 rounded-3xl bg-slate-500 hover:bg-slate-600 font-bold text-white">Créer un
                 compte</button>
         </section>
+
 
         <section class="hidden h-full w-full px-4 pt-16">
             <nav class="">
