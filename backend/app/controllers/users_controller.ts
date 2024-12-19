@@ -1,7 +1,6 @@
 import User from '#models/user'
 import type { HttpContext } from '@adonisjs/core/http'
 import hash from '@adonisjs/core/services/hash'
-import { DateTime } from 'luxon'
 
 export default class UsersController {
   async register({ request, response }: HttpContext) {
@@ -34,7 +33,7 @@ export default class UsersController {
     }
   }
 
-  async login({ request, response, auth }: HttpContext) {
+  async login({ request, response }: HttpContext) {
     const { phone, password } = request.only(['phone', 'password'])
 
     try {
